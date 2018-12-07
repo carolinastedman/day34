@@ -45,11 +45,11 @@ function drawFace(ctx, radius) {
 function drawNumbers(ctx, radius) {
     var ang;
     var num;
-    ctx.font = radius*0.15 + "px arial";
+    ctx.font = radius*0.1 + "px arial";
     ctx.textBaseline="middle";
     ctx.textAlign="center";
-    for(num= 1; num < 13; num++){
-        ang = num * Math.PI / 6;
+    for(num= 1; num < 25; num++){
+        ang = num * Math.PI / 12;
         ctx.rotate(ang);
         ctx.translate(0, -radius*0.85);
         ctx.rotate(-ang);
@@ -65,8 +65,8 @@ function drawTime(ctx, radius){
     var minute = now.getMinutes();
     var second = now.getSeconds();
     //hour
-    hour=hour%12;
-    hour=(hour*Math.PI/6)+(minute*Math.PI/(6*60))+(second*Math.PI/(360*60));
+    hour=hour%48;
+    hour=(hour*Math.PI/12)+(minute*Math.PI/(6*60))+(second*Math.PI/(360*60));
     drawHand(ctx, hour, radius*0.5, radius*0.07);
     //minute
     minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
