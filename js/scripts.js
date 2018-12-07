@@ -7,6 +7,14 @@ radius = radius * 0.9;
 //drawClock();
 setInterval(drawClock, 1000);
 
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.9;
+//drawClock();
+setInterval(drawClock, 1000);
+
 function drawClock() {
   drawFace(ctx, radius);
   drawNumbers(ctx, radius);
@@ -22,16 +30,16 @@ function drawFace(ctx, radius) {
   ctx.fill();
 
   grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
-  grad.addColorStop(0, "lightyellow");
-  grad.addColorStop(0.5, "lightpink");
-  grad.addColorStop(1, "lightyellow");
+  grad.addColorStop(0, "#59c0ca");
+  grad.addColorStop(0.5, "#ffd16f");
+  grad.addColorStop(1, "#ff766f");
   ctx.strokeStyle = grad;
   ctx.lineWidth = radius * 0.1;
   ctx.stroke();
 
   ctx.beginPath();
   ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
-  ctx.fillStyle = "lightpink";
+  ctx.fillStyle = "#ff766f";
   ctx.fill();
 }
 function drawNumbers(ctx, radius) {
